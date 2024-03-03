@@ -2,11 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&family=Ysabeau+SC:wght@1..1000&display=swap');
 
 :root {
-    --header: #004b88;
+    --header: #001530;
+    --page-color: #d2dfc7;
+    --font-color: #1b7fdd;
 }
 
 html {
     overflow-x: hidden;
+    padding-top: 5rem;
+    font-family: Ysabeau SC;
 }
 
 *{
@@ -30,6 +34,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 5rem;
+    color: white;
 }
 
 header div {
@@ -41,4 +47,49 @@ header div {
 
 header a {
     color: white;
+}
+
+.home-container {
+    width: 100vw;
+    background-color: var(--page-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-wrapper {
+    height: calc(100vh - 10rem);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: white;
+    font-size: 36px;
+    background-color: var(--page-color);
+}
+
+.home-box h2{
+    font-family: Exo;
+    color: var(--font-color);
+}
+
+.home-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-box img {
+    border-radius: 50%;
+}
+
+.home-footer {
+    height: 5rem;
+    background-color: rgb(169, 182, 133);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--header);
 }
