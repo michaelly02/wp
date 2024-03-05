@@ -68,7 +68,7 @@ header a {
     background-color: var(--page-color);
 }
 
-.home-box h2{
+h2{
     font-family: Exo;
     color: var(--font-color);
 }
@@ -84,7 +84,7 @@ header a {
     border-radius: 50%;
 }
 
-.home-footer {
+.footer {
     height: 5rem;
     background-color: rgb(169, 182, 133);
     width: 100%;
@@ -92,4 +92,39 @@ header a {
     align-items: center;
     justify-content: center;
     color: var(--header);
+}
+
+
+
+/* ADD PAGE *//* ADD PAGE *//* ADD PAGE */
+
+.add-wrapper {
+    height: calc(100vh - 10rem);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+    background-color: white;
+    background-color: var(--page-color);
+    padding-top: 20px;
+}
+
+.add-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: white; */
+}
+
+.add-box input, .add-box select {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.add-box span {
+    color: red;
 }

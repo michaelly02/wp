@@ -36,14 +36,56 @@
     </header>
 
 
-    <div>HOMEEEE</div>
-    <div>HOMEEEE</div>
-    <div>HOMEEEE</div>
-    <div>HOMEEEE</div>
-    <div>HOMEEEE</div>
-    <div>HOMEEEE</div>
-    <div>ADDDD</div>
-    <div>ADDDD</div>
+    <div class="home-container">
+        <div class="add-wrapper">
+            <div class="add-box">
+                <h2>
+                    Add a hike
+                </h2>
+                <div>
+                    You can add a new hike here
+                </div>
+            </div>
+
+            <div class="add-box">
+                <form action="">
+                    <label for="hname">Hike Name <span>*</span></label><br>
+                    <input type="text" id="hname" name="hname" required placeholder="Name of hike"><br>
+                    <label for="description">Description <span>*</span></label><br>
+                    <input type="text" id="description" name="description" required placeholder="Describe the hike"><br>
+
+                    <label for="select-image">Select an image <span>*</span></label><br>
+                    <input type="file" id="select-image" name="select-image" required><br>
+
+                    <label for="image-caption">Image Caption <span>*</span></label><br>
+                    <input type="text" id="image-caption" name="image-caption" required><br>
+
+                    <label for="distance">Distance <span>*</span></label><br>
+                    <input type="text" id="distance" name="distance" required placeholder="Distance in km"><br>
+
+                    <label for="location">Location <span>*</span></label><br>
+                    <input type="text" id="location" name="location" required placeholder="Location of hike"><br>
+
+                    <label for="level">Level <span>*</span></label><br>
+                        <select type="text" id="level" name="level" required placeholder="Choose an option">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select><br>
+                    
+                        <input type="submit">
+                    
+                    
+
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            Copyright s3899226. All Rights Reserved | Designed For Hikes Victoria
+        </div>
+    </div>
+
 
     
     <script src="./main.js"></script>
