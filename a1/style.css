@@ -4,7 +4,7 @@
 :root {
     --header: #001530;
     --page-color: #d2dfc7;
-    --font-color: #1b7fdd;
+    --font-color: #003d75;
 }
 
 html {
@@ -128,3 +128,100 @@ h2{
 .add-box span {
     color: red;
 }
+/* ADD PAGE *//* ADD PAGE *//* ADD PAGE */
+
+
+/* Hike Page *//* Hike Page *//* Hike Page */
+
+.hike-intro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 10rem;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.hike-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hike-box table{
+    font-size: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.hike-box th, .hike-box td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+.hike-box th {
+    background-color: #f2f2f2;
+  }
+
+  .hike-wrapper {
+    height: calc(100vh - 20rem);
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: white;
+    font-size: 36px;
+    background-color: var(--page-color);
+  }
+
+
+/* Hike Page *//* Hike Page *//* Hike Page */
+
+
+.gallery-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    height: calc(100vh - 20rem);
+  }
+
+  .box {
+    width: calc(33.33% - 20px);
+    height: 200px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .box:hover {
+    transform: translateY(-5px);
+  }
+
+  .box img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .box:hover .caption {
+    bottom: -50px;
+  }
