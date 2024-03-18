@@ -60,7 +60,7 @@ header a {
 }
 
 .home-wrapper {
-    height: calc(100vh - 10rem);
+    min-height: calc(100vh - 10rem);
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -105,7 +105,7 @@ h2{
 /* ADD PAGE *//* ADD PAGE *//* ADD PAGE */
 
 .add-wrapper {
-    height: calc(100vh - 10rem);
+    min-height: calc(100vh - 10rem);
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -174,7 +174,7 @@ h2{
   }
 
 .hike-wrapper {
-    height: calc(100vh - 20rem);
+    min-height: calc(100vh - 20rem);
     display: flex;
     width: 100%;
     justify-content: space-around;
@@ -192,7 +192,7 @@ h2{
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    height: calc(100vh - 20rem);
+    min-height: calc(100vh - 20rem);
   }
 
   .box {
