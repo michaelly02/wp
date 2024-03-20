@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
+
 <body>
     <header>
         <div>
             <a href="index.html" class="logo">
                 <img src="./img/logo.png" alt="logo image">
-                
+
             </a>
             <select id="redirectSelect" onchange="redirectToPage()">
                 <option value="">Select Page</option>
@@ -22,7 +25,7 @@
                 <option value="hikes.html">Hikes</option>
             </select>
         </div>
-        
+
 
         <!-- <div class="icons">
             <i class="bi bi-search" id="search-btn"></i>
@@ -30,7 +33,9 @@
         <div>
             <form class="search-bar-container">
                 <input type="search" id="search-bar" placeholder="Search">
-                <label for="search-bar"><i class="bi bi-search" id="search-btn"></i></label>
+                <span class="material-symbols-outlined">
+                    search
+                </span>
 
             </form>
         </div>
@@ -50,38 +55,43 @@
 
             <div class="add-box">
                 <form>
-                    <label for="hname">Hike Name <span>*</span></label><br>
+                    <label class="required" for="hname">Hike Name </label><br>
                     <input type="text" id="hname" name="hname" required placeholder="Name of hike"><br>
-                    <label for="description">Description <span>*</span></label><br>
-                    <input type="text" id="description" name="description" required placeholder="Describe the hike"><br>
+                    <label class="required" for="description">Description </label><br>
+                    <textarea id="description" name="description" required placeholder="Describe the hike"></textarea><br>
 
-                    <label for="select-image">Select an image <span>*</span></label><br>
+                    <label class="required" for="select-image">Select an image </label><br>
                     <input type="file" id="select-image" name="select-image" required><br>
 
-                    <label for="image-caption">Image Caption <span>*</span></label><br>
+                    <label class="required" for="image-caption">Image Caption </label><br>
                     <input type="text" id="image-caption" name="image-caption" required><br>
 
-                    <label for="distance">Distance <span>*</span></label><br>
+                    <label class="required" for="distance">Distance </label><br>
                     <input type="text" id="distance" name="distance" required placeholder="Distance in km"><br>
 
-                    <label for="location">Location <span>*</span></label><br>
+                    <label class="required" for="location">Location </label><br>
                     <input type="text" id="location" name="location" required placeholder="Location of hike"><br>
 
-                    <label for="level">Level <span>*</span></label><br>
-                        <select id="level" name="level" required>
-                            <option value="">Select</option>
-                            <option value="easy">Easy</option>
-                            <option value="moderate">Moderate</option>
-                            <option value="hard">Hard</option>
-                        </select><br>
+                    <label class="required" for="level">Level </label><br>
+                    <select id="level" name="level" required>
+                        <option value="">Select</option>
+                        <option value="easy">Easy</option>
+                        <option value="moderate">Moderate</option>
+                        <option value="hard">Hard</option>
+                    </select><br>
                     <div class="buttons">
-                        <button type="submit" id="submitButton"><i class="bi bi-check"></i> Submit</button>
-                        <button type="reset" id="clearButton"><i class="bi bi-x"></i> Clear</button>
+                        <button type="submit" id="submitButton">
+                            <span class="material-symbols-outlined white">
+                                done
+                            </span> Submit</button>
+                        <button type="reset" id="clearButton"><span class="material-symbols-outlined">
+                                close
+                            </span> Clear</button>
                     </div>
-                        
-                        
-                    
-                    
+
+
+
+
 
                 </form>
             </div>
@@ -93,7 +103,8 @@
     </div>
 
 
-    
+
     <script src="./main.js"></script>
 </body>
+
 </html>
