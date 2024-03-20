@@ -142,6 +142,40 @@ h2{
 .add-box span {
     color: red;
 }
+
+
+button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
+
+.buttons {
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin-bottom: 20px;
+}
+
+
+#submitButton {
+    background-color: #001150;
+    color: white;
+    margin-right: 10px;
+}
+
+
+#clearButton {
+    border: 1px solid darkblue;
+    background-color: white; 
+    color: black;
+    margin-left: 10px;
+}
 /* ADD PAGE *//* ADD PAGE *//* ADD PAGE */
 
 
@@ -239,3 +273,5 @@ h2{
   .box:hover .caption {
     bottom: -50px;
   }
+
+
