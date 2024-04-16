@@ -1,45 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-</head>
+<?php include './includes/header.inc'; ?>
 
 <body>
-    <header>
-        <div>
-            <a href="index.html" class="logo">
-                <img src="./img/logo.png" alt="logo image">
-            </a>
-            <select id="redirectSelect" onchange="redirectToPage()">
-                <option value="">Select Page</option>
-                <option value="index.html">Home</option>
-                <option value="add.html">Add</option>
-                <option value="gallery.html">Gallery</option>
-                <option value="hikes.html">Hikes</option>
-            </select>
-        </div>
+    <?php include './includes/nav.inc'; ?>
 
-        <!-- <div class="icons">
-            <i class="bi bi-search" id="search-btn"></i>
-        </div> -->
-        <div>
-            <form class="search-bar-container">
-                <input type="search" id="search-bar" placeholder="Search">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-
-            </form>
-        </div>
-    </header>
-
-    <div class="home-container">
+    <main class="home-container">
         <div class="hike-intro">
 
             <h2>Victoria has a a lot to offer!</h2>
@@ -78,10 +42,8 @@
 
         </div>
 
-        <div class="footer">
-            Copyright s3899226. All Rights Reserved | Designed For Hikes Victoria
-        </div>
-    </div>
+        <?php include './includes/footer.inc'; ?>
+    </main>
 
 
 
