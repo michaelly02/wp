@@ -1,42 +1,38 @@
 <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include('db_connect.inc');
-        $hikename = $_POST["hikename"];
-        $description = $_POST["description"];
-        $image = $_POST["image"];
-        $caption = $_POST["caption"];
-        $distance = $_POST["distance"];
-        $location = $_POST["location"];
-        $level = $_POST["level"];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
+    include('db_connect.inc');
+    $hikename = $_POST["hikename"];
+    $description = $_POST["description"];
+    $image_name = $_FILES["image"]["name"];
+    $image_tmp = $_FILES["image"]["tmp_name"];
+    $caption = $_POST["caption"];
+    $distance = $_POST["distance"];
+    $location = $_POST["location"];
+    $level = $_POST["level"];
 
+    // Upload directory
+    $upload_dir = "img/";
+
+    // Move uploaded file to the upload directory
+    if (move_uploaded_file($image_tmp, $upload_dir . $image_name)) {
+        // File uploaded successfully, insert file path into database
+        $image_path = $upload_dir . $image_name;
         
         try {
-            require_once "db_connect.inc";
+            // Prepare SQL statement
+            $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            $stmt = $pdo->prepare($sqlInsert);
+            $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level]);
 
-            $query = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level) VALUES 
-            (?, ?, ?, ?, ?, ?, ?);";
-
-            $stmt = $pdo->prepare($query);
-
-            $stmt->execute([$hikename, $description, $image, $caption, $distance, $location, $level]);
-
-
-            // if ($stmt->affected_rows > 0) {
-            //     echo "A new record has been created";
-            // }
-
-            $pdo = null;
-            $stmt = null;
-            header("Location: ./add.php");
-            die();
         } catch (PDOException $e) {
-            die("Query failed: " . $e->getMessage());
+            
         }
+    } else {
+        
     }
-    else {
-        // header("Location: ./add.php");
-        // die();
-    }
+} else {
+    
+}
 ?>
 
 <?php include './includes/header.inc'; ?>
@@ -60,7 +56,7 @@
             </div>
 
             <div class="add-box">
-                <form action="" method="POST">
+                <form action="" method="post" enctype="multipart/form-data">
 
 
                     <label class="required" for="hikename">Hike Name </label><br>
@@ -71,7 +67,7 @@
                     <textarea id="description" name="description" required placeholder="Describe the hike"></textarea><br>
 
                     <label class="required" for="image">Select an image </label><br>
-                    <input type="file" id="image" name="image" required><br>
+                    <input type="file" name="image" id="image" required><br>
 
                     <label class="required" for="caption">Image Caption </label><br>
                     <input type="text" id="caption" name="caption" required><br>

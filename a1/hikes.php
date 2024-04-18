@@ -22,7 +22,42 @@
             </div>
 
             <div class="hike-box">
-                <table>
+
+            <?php
+                include("db_connect.inc");
+
+                try {
+                    
+                    $sql = "SELECT * FROM hikes";
+                    $stmt = $pdo->query($sql);
+
+                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                } catch (PDOException $e) {
+
+                    echo "Error: " . $e->getMessage();
+                }
+
+                $pdo = null;
+            ?>
+
+            <table>
+                <tr>
+                    <th>Hike</th>
+                    <th>Distance (km)</th>
+                    <th>Level</th>
+                    <th>Location</th>
+                </tr>
+                <?php foreach ($results as $row): ?>
+                    <tr>
+                        <td><a href="details.php?id=<?php echo $row['hikeid']; ?>"><?php echo $row['hikename']; ?></a></td>
+                        <td><?php echo $row['distance']; ?></td>
+                        <td><?php echo $row['level']; ?></td>
+                        <td><?php echo $row['location']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+            
+                <!-- <table>
                     <tr>
                         <th>Hike</th>
                         <th>Distance (km)</th>
@@ -67,7 +102,7 @@
                     </tr>
 
 
-                </table>
+                </table> -->
             </div>
 
 

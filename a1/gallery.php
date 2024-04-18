@@ -14,7 +14,32 @@
             </p>
 
         </div>
-        <div class="gallery-wrapper">
+        <?php
+            // Include database connection
+            include("db_connect.inc");
+
+            // Query to retrieve hike data
+            $sql = "SELECT * FROM hikes";
+            $stmt = $pdo->query($sql);
+
+            // Fetch hike data and generate gallery HTML
+            echo '<div class="gallery-wrapper">';
+            while ($hike = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                echo '<a class="box" href="details.php?id=' . $hike['hikeid'] . '">';
+                echo '<img src="' . $hike['image'] . '" alt="' . $hike['hikename'] . '">';
+                echo '<div class="caption">' . $hike['hikename'] . '</div>';
+                echo '</a>';
+            }
+            echo '</div>';
+
+            // Close database connection
+            $pdo = null;
+        ?>
+
+
+
+
+        <!-- <div class="gallery-wrapper">
             <a class="box">
                 <img src="./img/falls.jpg" alt="Werribee Gorge Circuit Walk">
                 <div class="caption">Werribee Gorge Circuit Walk</div>
@@ -40,7 +65,7 @@
                 <div class="caption">Millers Landing Nature Walk</div>
             </a>
 
-        </div>
+        </div> -->
 
         <?php include './includes/footer.inc'; ?>
     </main>
