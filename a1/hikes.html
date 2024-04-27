@@ -1,9 +1,46 @@
-<?php include './includes/header.inc'; ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
 
 <body>
-    <?php include './includes/nav.inc'; ?>
+    <header>
+        <div>
+            <a href="index.html" class="logo">
+                <img src="./img/logo.png" alt="logo image">
+            </a>
+            <select id="redirectSelect" onchange="redirectToPage()">
+                <option value="">Select Page</option>
+                <option value="index.html">Home</option>
+                <option value="add.html">Add</option>
+                <option value="gallery.html">Gallery</option>
+                <option value="hikes.html">Hikes</option>
+            </select>
+        </div>
 
-    <main class="home-container">
+
+        <!-- <div class="icons">
+            <i class="bi bi-search" id="search-btn"></i>
+        </div> -->
+        <div>
+            <form class="search-bar-container">
+                <input type="search" id="search-bar" placeholder="Search">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+
+            </form>
+        </div>
+    </header>
+
+    <div class="home-container">
         <div class="hike-intro">
 
             <h2>Discover Victoria your own way</h2>
@@ -22,42 +59,7 @@
             </div>
 
             <div class="hike-box">
-
-            <?php
-                include("db_connect.inc");
-
-                try {
-                    
-                    $sql = "SELECT * FROM hikes";
-                    $stmt = $pdo->query($sql);
-
-                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                } catch (PDOException $e) {
-
-                    echo "Error: " . $e->getMessage();
-                }
-
-                $pdo = null;
-            ?>
-
-            <table>
-                <tr>
-                    <th>Hike</th>
-                    <th>Distance (km)</th>
-                    <th>Level</th>
-                    <th>Location</th>
-                </tr>
-                <?php foreach ($results as $row): ?>
-                    <tr>
-                        <td><a href="details.php?id=<?php echo $row['hikeid']; ?>"><?php echo $row['hikename']; ?></a></td>
-                        <td><?php echo $row['distance']; ?></td>
-                        <td><?php echo $row['level']; ?></td>
-                        <td><?php echo $row['location']; ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-            
-                <!-- <table>
+                <table>
                     <tr>
                         <th>Hike</th>
                         <th>Distance (km)</th>
@@ -102,14 +104,16 @@
                     </tr>
 
 
-                </table> -->
+                </table>
             </div>
 
 
         </div>
 
-        <?php include './includes/footer.inc'; ?>
-    </main>
+        <div class="footer">
+            Copyright s3899226. All Rights Reserved | Designed For Hikes Victoria
+        </div>
+    </div>
 
 
 
