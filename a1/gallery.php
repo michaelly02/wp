@@ -6,7 +6,7 @@
     <main class="home-container">
         <div class="hike-intro">
 
-            <h2>Victoria has a a lot to offer!</h2>
+            <h2>Victoria has a lot to offer!</h2>
             <p>
                 Embark on a journey through Victoria's captivating hiking trails, where every step unveils a new wonder.
                 From coastal cliffs to mountain peaks, the scenery is as diverse as it is stunning. Are you ready to
