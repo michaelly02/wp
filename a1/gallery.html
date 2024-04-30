@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header>
+        <div>
+            <a href="index.html" class="logo">
+                <img src="./img/logo.png" alt="logo image">
+            </a>
+            <select id="redirectSelect" onchange="redirectToPage()">
+                <option value="">Select Page</option>
+                <option value="index.html">Home</option>
+                <option value="add.html">Add</option>
+                <option value="gallery.html">Gallery</option>
+                <option value="hikes.html">Hikes</option>
+            </select>
+        </div>
+
+        <!-- <div class="icons">
+            <i class="bi bi-search" id="search-btn"></i>
+        </div> -->
+        <div>
+            <form class="search-bar-container">
+                <input type="search" id="search-bar" placeholder="Search">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+
+            </form>
+        </div>
+    </header>
+
+    <div class="home-container">
+        <div class="hike-intro">
+
+            <h2>Victoria has a a lot to offer!</h2>
+            <p>
+                Embark on a journey through Victoria's captivating hiking trails, where every step unveils a new wonder.
+                From coastal cliffs to mountain peaks, the scenery is as diverse as it is stunning. Are you ready to
+                lace up your boots and explore the beauty that awaits?
+            </p>
+
+        </div>
+        <div class="gallery-wrapper">
+            <a class="box">
+                <img src="./img/falls.jpg" alt="Werribee Gorge Circuit Walk">
+                <div class="caption">Werribee Gorge Circuit Walk</div>
+            </a>
+            <a class="box">
+                <img src="./img/capewoolamai.jpg" alt="Cliff, Woodland and Quarry Tracks">
+                <div class="caption">Cliff, Woodland and Quarry Tracks </div>
+            </a>
+            <a class="box">
+                <img src="./img/lyrebird.jpg" alt="Lyrebird Track">
+                <div class="caption">Lyrebird Track </div>
+            </a>
+            <a class="box">
+                <img src="./img/keppellookout.jpg" alt="Keppel Lookout Trail">
+                <div class="caption">Keppel Lookout Trail</div>
+            </a>
+            <a class="box">
+                <img src="./img/grampians.jpg" alt="The Pinnacle Walk & Lookout">
+                <div class="caption">The Pinnacle Walk & Lookout</div>
+            </a>
+            <a class="box">
+                <img src="./img/prom.jpg" alt="Millers Landing Nature Walk">
+                <div class="caption">Millers Landing Nature Walk</div>
+            </a>
+
+        </div>
+
+        <div class="footer">
+            Copyright s3899226. All Rights Reserved | Designed For Hikes Victoria
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

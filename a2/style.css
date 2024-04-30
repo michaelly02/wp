@@ -30,7 +30,7 @@ body {
     transition: all .2s linear;
 }
 
-header {
+header, nav {
     font-family: exo;
     position: fixed;
     top: 0;
@@ -49,7 +49,7 @@ header {
     display: flex;
 }
 
-header div {
+header div, nav div {
     width: 33%;
     display: flex;
     align-items: center;
@@ -57,7 +57,7 @@ header div {
 
 }
 
-header a {
+header a, nav a {
     color: white;
 }
 
@@ -237,7 +237,6 @@ button {
     border-collapse: collapse;
     border: 1px solid black;
     margin-left: 40px;
-    margin-bottom: 40px;
 }
 
 .hike-box th,
@@ -309,4 +308,41 @@ button {
 
 .box:hover .caption {
     bottom: -50px;
+}
+
+
+/* DETAILS PAGE */
+
+.hike-infos {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
+
+.hike-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--header);
+    margin: 20px;
+}
+
+.hike-image {
+    height: 50vh;
+    max-height: 500px;
+    margin: 20px;
+}
+
+.hike-name {
+    margin: 20px;
+    text-align: center;
+}
+
+.hike-description {
+    margin-bottom: 60px;
+    text-align: center;
 }
