@@ -17,7 +17,7 @@ if(isset($_GET['id'])) {
     $hike = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
     // Redirect to error page or homepage if ID is not provided
-    header("Location: error.php");
+    header("Location: index.php");
     exit(); // Stop script execution
 }
 ?>
