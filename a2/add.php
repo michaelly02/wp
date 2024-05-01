@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
             </div>
 
             <div class="add-box">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
 
 
                     <label class="required" for="hikename">Hike Name </label><br>
