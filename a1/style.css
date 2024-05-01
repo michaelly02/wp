@@ -237,6 +237,7 @@ button {
     border-collapse: collapse;
     border: 1px solid black;
     margin-left: 40px;
+    margin-bottom: 40px;
 }
 
 .hike-box th,
