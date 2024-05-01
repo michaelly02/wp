@@ -1,5 +1,3 @@
-<?php include './includes/header.inc'; ?>
-
 <?php
 // Include database connection
 include("db_connect.inc");
@@ -21,6 +19,10 @@ if(isset($_GET['id'])) {
     exit(); // Stop script execution
 }
 ?>
+
+<?php include './includes/header.inc'; ?>
+
+
 
 <body>
 <?php include './includes/nav.inc'; ?>
