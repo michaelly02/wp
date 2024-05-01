@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
 
 
 
-        </div>
+        
         <h2 class="hike-name"><?php echo $hike['hikename']; ?></h2>
         <p class="hike-description"><?php echo $hike['description']; ?></p>
         <?php include './includes/footer.inc'; ?>
