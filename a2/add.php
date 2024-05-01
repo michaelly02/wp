@@ -25,14 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
             $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level]);
 
         } catch (PDOException $e) {
-            // Handle the error
-            echo "Error inserting into the database: " . $e->getMessage();
+            
         }
     } else {
-        echo "Error uploading file.";
+        
     }
 } else {
-    echo "No file uploaded or invalid request.";
+    
 }
 ?>
 
