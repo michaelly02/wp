@@ -5,6 +5,7 @@
     --header: #001530;
     --page-color: rgb(195, 212, 190);
     --font-color: #003d75;
+    --blue-button: #0865df;
 }
 
   
@@ -57,19 +58,27 @@ header, nav {
 }
 
 .nav-options {
-    margin-right: 15px;
+    margin-right: 20px;
 }
 
 .search-bar-container {
     display: flex;
+    width: 33%;
 }
 
-header div, nav div {
+header div {
     width: 33%;
     display: flex;
     align-items: center;
     justify-content: center;
 
+}
+
+nav div {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header a, nav a {
@@ -122,6 +131,13 @@ h2 {
     font-size: 30px;
 }
 
+#alert {
+    display: flex;
+    width: 100%;
+    align-items: space-between;
+    justify-content: space-between;
+}
+
 /* .home-box-title {
     font-family: Exo;
     color: var(--font-color);
@@ -163,7 +179,7 @@ h2 {
 
 .carousel-item img {
     width: 100%;
-    height: 400px;
+    height: 300px;
 }
 
 
@@ -227,7 +243,7 @@ h2 {
 
 .add-box input[type="text"],
 .add-box select,
-.add-box textarea {
+.add-box textarea{
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -363,7 +379,25 @@ button {
     gap: 20px;
     /* min-height: calc(100vh - 20rem); */
     margin-bottom: 20px;
+
 }
+
+.gallery-select {
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgb(165, 165, 165);
+    color: rgb(63, 63, 63);
+    border-radius: 10px;
+    margin: 10px 0;
+
+}
+
+#filterForm {
+    width: 100%;
+}
+
+
+
 
 .search-wrapper {
     display: flex;
@@ -469,6 +503,45 @@ button {
 }
 
 
+/* LOGIN PAGE */ /* LOGIN PAGE *//* LOGIN PAGE */
+
+.login-container {
+    width: 100vw;
+    /* background-color: var(--page-color); */
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.login-intro {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.login-form input {
+    border: 1px solid rgb(184, 184, 184);
+    border-radius: 5px;
+    margin-bottom: 20px;;
+}
+
+.login-form button {
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 10px;
+    background-color: var(--blue-button);
+    color: white;
+}
+
 
 
 
@@ -489,5 +562,19 @@ button {
 
     .hike-box img {
         width: 350px;
+    }
+
+    .box {
+        width: 40%;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+
+    .box {
+        width: 60%;
+        
     }
 }

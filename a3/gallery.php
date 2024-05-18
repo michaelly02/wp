@@ -14,13 +14,33 @@
             </p>
 
         </div>
+
+        <form id="filterForm" method="get" action="">
+            <select class="gallery-select" id="level" name="level" onchange="submitForm()">
+                <option value="">Select level...</option>
+                <option value="easy" <?php if(isset($_GET['level']) && $_GET['level'] == 'easy') echo 'selected'; ?>>Easy</option>
+                <option value="moderate" <?php if(isset($_GET['level']) && $_GET['level'] == 'moderate') echo 'selected'; ?>>Moderate</option>
+                <option value="hard" <?php if(isset($_GET['level']) && $_GET['level'] == 'hard') echo 'selected'; ?>>Hard</option>
+            </select>
+        </form>
+
         <?php
             // Include database connection
             include("db_connect.inc");
 
-            // Query to retrieve hike data
-            $sql = "SELECT * FROM hikes";
-            $stmt = $pdo->query($sql);
+            // Get selected level
+            $level = isset($_GET['level']) ? $_GET['level'] : '';
+
+            // Build query based on selected level
+            if ($level) {
+                $sql = "SELECT * FROM hikes WHERE level = :level";
+                $stmt = $pdo->prepare($sql);
+                $stmt->bindParam(':level', $level);
+                $stmt->execute();
+            } else {
+                $sql = "SELECT * FROM hikes";
+                $stmt = $pdo->query($sql);
+            }
 
             // Fetch hike data and generate gallery HTML
             echo '<div class="gallery-wrapper">';
@@ -36,46 +56,11 @@
             $pdo = null;
         ?>
 
-
-
-
-        <!-- <div class="gallery-wrapper">
-            <a class="box">
-                <img src="./img/falls.jpg" alt="Werribee Gorge Circuit Walk">
-                <div class="caption">Werribee Gorge Circuit Walk</div>
-            </a>
-            <a class="box">
-                <img src="./img/capewoolamai.jpg" alt="Cliff, Woodland and Quarry Tracks">
-                <div class="caption">Cliff, Woodland and Quarry Tracks </div>
-            </a>
-            <a class="box">
-                <img src="./img/lyrebird.jpg" alt="Lyrebird Track">
-                <div class="caption">Lyrebird Track </div>
-            </a>
-            <a class="box">
-                <img src="./img/keppellookout.jpg" alt="Keppel Lookout Trail">
-                <div class="caption">Keppel Lookout Trail</div>
-            </a>
-            <a class="box">
-                <img src="./img/grampians.jpg" alt="The Pinnacle Walk & Lookout">
-                <div class="caption">The Pinnacle Walk & Lookout</div>
-            </a>
-            <a class="box">
-                <img src="./img/prom.jpg" alt="Millers Landing Nature Walk">
-                <div class="caption">Millers Landing Nature Walk</div>
-            </a>
-
-        </div> -->
-
         <?php include './includes/footer.inc'; ?>
     </main>
 
-
-
-
-
-
     <script src="./main.js"></script>
+    <script src="./filter.js"></script>
 </body>
 
 </html>

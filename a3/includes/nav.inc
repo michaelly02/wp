@@ -1,32 +1,42 @@
+
+
 <nav>
-        <div>
-            <a href="index.php" class="logo">
-                <img src="./img/logo.png" alt="logo image">
-            </a>
-            
-            <a class="nav-options" href="index.php">Home</a>
-            <a class="nav-options" href="add.php">Add</a>
-            <a class="nav-options" href="gallery.php">Gallery</a>
-            <a class="nav-options" href="hikes.php">Hikes</a>
-            
-        </div>
-
-
+    <div>
+        <a href="index.php" class="logo">
+            <img src="./images/logo.png" alt="logo image">
+        </a>
         
-        <div class="search-bar-container">
-            <form class="search-bar-container">
-                <input type="search" id="search-bar" placeholder="Search">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-                
+        <a class="nav-options" href="index.php">Home</a>
+        <a class="nav-options" href="add.php">Add</a>
+        <a class="nav-options" href="gallery.php">Gallery</a>
+        <a class="nav-options" href="hikes.php">Hikes</a>
 
-            </form>
-        </div>
+        <?php
+        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+            // User is logged in
+            echo '<a class="nav-options" href="add_more.php">Add more</a>';
+            echo '<a class="nav-options" href="logout.php">Log out</a>';
+        } else {
+            // User is not logged in
+            echo '<a class="nav-options" href="register.php">Register</a>';
+            echo '<a class="nav-options" href="login.php">Login</a>';
+        }
+        ?>
+        
+    </div>
 
-        <div class="burger-icon">
+    <div class="search-bar-container">
+        <form class="search-bar-container">
+            <input type="search" id="search-bar" placeholder="Search">
             <span class="material-symbols-outlined">
-                menu
+                search
             </span>
-        </div>
-    </nav>
+        </form>
+    </div>
+
+    <div class="burger-icon">
+        <span class="material-symbols-outlined">
+            menu
+        </span>
+    </div>
+</nav>

@@ -18,7 +18,7 @@
         </div>
         <div class="hike-wrapper">
             <div class="hike-box">
-                <img src="./img/falls.jpg" alt="waterfall image">
+                <img src="./images/falls.jpg" alt="waterfall image">
             </div>
 
             <div class="hike-box">
