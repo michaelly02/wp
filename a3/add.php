@@ -1,4 +1,6 @@
 <?php
+$message = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
     include('db_connect.inc');
     $hikename = $_POST["hikename"];
@@ -11,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
     $level = $_POST["level"];
 
     // Upload directory
-    $upload_dir = "img/";
+    $upload_dir = "images/";
 
     // Move uploaded file to the upload directory
     if (move_uploaded_file($image_tmp, $upload_dir . $image_name)) {
@@ -24,25 +26,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
             $stmt = $pdo->prepare($sqlInsert);
             $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level]);
 
+            // Set success message
+            $message = "Added successfully";
+
         } catch (PDOException $e) {
-            
+            $message = "Error adding hike: " . $e->getMessage();
         }
     } else {
-        
+        $message = "Error uploading file.";
     }
-} else {
-    
 }
 ?>
 
 <?php include './includes/header.inc'; ?>
 
-
-
-
 <body>
     <?php include './includes/nav.inc'; ?>
     <main class="home-container">
+    <?php if ($message): ?>
+        <div class="message">
+            <?php echo htmlspecialchars($message); ?>
+        </div>
+    <?php endif; ?>
         <div class="add-wrapper">
             <div class="add-box">
                 <h2>
@@ -51,15 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                 <div>
                     You can add a new hike here
                 </div>
+                
             </div>
 
             <div class="add-box">
                 <form method="post" enctype="multipart/form-data">
-
-
                     <label class="required" for="hikename">Hike Name </label><br>
                     <input type="text" id="hikename" name="hikename" required placeholder="Name of hike"><br>
-
 
                     <label class="required" for="description">Description </label><br>
                     <textarea id="description" name="description" required placeholder="Describe the hike"></textarea><br>
@@ -87,16 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
                         <button type="submit" id="submitButton">
                             <span class="material-symbols-outlined white">
                                 done
-                            </span> Submit</button>
-                        <button type="reset" id="clearButton"><span class="material-symbols-outlined">
+                            </span> Submit
+                        </button>
+                        <button type="reset" id="clearButton">
+                            <span class="material-symbols-outlined">
                                 close
-                            </span> Clear</button>
+                            </span> Clear
+                        </button>
                     </div>
-
-
-
-
-
                 </form>
             </div>
         </div>
@@ -104,9 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
         <?php include './includes/footer.inc'; ?>
     </main>
 
-
-
     <script src="./main.js"></script>
 </body>
-
 </html>

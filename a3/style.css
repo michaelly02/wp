@@ -6,6 +6,7 @@
     --page-color: rgb(195, 212, 190);
     --font-color: #003d75;
     --blue-button: #0865df;
+    --red-button: #df0808;
 }
 
   
@@ -96,6 +97,25 @@ header a, nav a {
     max-width: 1200px;
     margin-top: 20px;
 }
+
+.delete-container {
+    width: 100vw;
+    /* background-color: var(--page-color); */
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+
+.delete-intro {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 20px;
+}
+
+
 
 .index-container {
     width: 100vw;
@@ -469,6 +489,29 @@ button {
     display: flex;
     flex-direction: column;
     width: 50%;
+}
+
+.detail-buttons {
+    width: 100%;
+    display: flex;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.detail-buttons button {
+    width: 100px;
+    margin-right: 15px;
+    color: white;
+    border-radius: 8px;
+
+}
+
+.detail-buttons button:nth-child(1) {
+    background-color: var(--blue-button);
+}
+
+.detail-buttons button:nth-child(2) {
+    background-color: var(--red-button);
 }
 
 

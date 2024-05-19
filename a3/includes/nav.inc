@@ -7,14 +7,13 @@
         </a>
         
         <a class="nav-options" href="index.php">Home</a>
-        <a class="nav-options" href="add.php">Add</a>
         <a class="nav-options" href="gallery.php">Gallery</a>
         <a class="nav-options" href="hikes.php">Hikes</a>
 
         <?php
         if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
             // User is logged in
-            echo '<a class="nav-options" href="add_more.php">Add more</a>';
+            echo '<a class="nav-options" href="add.php">Add more</a>';
             echo '<a class="nav-options" href="logout.php">Log out</a>';
         } else {
             // User is not logged in

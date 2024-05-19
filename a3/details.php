@@ -1,5 +1,4 @@
 <?php
-// Include database connection
 include("db_connect.inc");
 
 // Check if ID parameter is provided in the URL
@@ -22,58 +21,46 @@ if (isset($_GET['id'])) {
 
 <?php include './includes/header.inc'; ?>
 
-
-
 <body>
     <?php include './includes/nav.inc'; ?>
     <main class="details-container">
-    <div class="details-main">
-        <div class="details-left">
-            <img src="<?php echo $hike['image']; ?>" alt="<?php echo $hike['hikename']; ?>" class="hike-image">
-            <div class="hike-infos">
+        <div class="details-main">
+            <div class="details-left">
+                <img src="<?php echo htmlspecialchars($hike['image']); ?>" alt="<?php echo htmlspecialchars($hike['hikename']); ?>" class="hike-image">
+                <div class="hike-infos">
+                    <div class="hike-info">
+                        <div class="material-symbols-outlined">hiking</div>
+                        <div><?php echo htmlspecialchars($hike['distance']); ?> km</div>
+                    </div>
 
-                
-                <div class="hike-info">
+                    <div class="hike-info">
+                        <span class="material-symbols-outlined">landscape</span>
+                        <div><?php echo htmlspecialchars($hike['level']); ?></div>
+                    </div>
 
-                    <div class="material-symbols-outlined">hiking</div>
-                    <div><?php echo $hike['distance']; ?> km </div>
-
+                    <div class="hike-info">
+                        <div class="material-symbols-outlined">location_on</div>
+                        <div><?php echo htmlspecialchars($hike['location']); ?></div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="hike-info">
-
-                    <span class="material-symbols-outlined">landscape</span>
-                    <div><?php echo $hike['level']; ?></div>
-
-                </div>
-
-
-                <div class="hike-info">
-
-                    <div class="material-symbols-outlined">location_on</div>
-                    <div><?php echo $hike['location']; ?></div>
-
-                </div>
+            <div>
+                <h2 class="hike-name"><?php echo htmlspecialchars($hike['hikename']); ?></h2>
+                <p class="hike-description"><?php echo htmlspecialchars($hike['description']); ?></p>
             </div>
         </div>
 
-
-
-
-        <div>
-            <h2 class="hike-name"><?php echo $hike['hikename']; ?></h2>
-            <p class="hike-description"><?php echo $hike['description']; ?></p>
-        </div>
-
-        </div>
+        <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+            <div class="detail-buttons">
+                <button onclick="location.href='edit.php?hikeid=<?php echo $hike['hikeid']; ?>'">Edit</button>
+                <button onclick="location.href='delete_confirm.php?hikeid=<?php echo $hike['hikeid']; ?>'">Delete</button>
+            </div>
+        <?php endif; ?>
 
         <?php include './includes/footer.inc'; ?>
-
-
     </main>
 
     <script src="./main.js"></script>
-
 </body>
-
 </html>
