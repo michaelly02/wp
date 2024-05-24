@@ -12,23 +12,6 @@ $message = "";
 if (isset($_GET['hikeid'])) {
     $hikeid = $_GET['hikeid'];
 
-    // Handle form submission to delete the hike
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        try {
-            // Prepare and execute the delete statement
-            $sql = "DELETE FROM hikes WHERE hikeid = ?";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute([$hikeid]);
-
-            // Redirect to the homepage after deletion
-            header("Location: index.php");
-            exit();
-        } catch (PDOException $e) {
-            // Handle errors
-            $message = "Error deleting hike: " . $e->getMessage();
-        }
-    }
-
     // Fetch hike details to display
     $sql = "SELECT * FROM hikes WHERE hikeid = ?";
     $stmt = $pdo->prepare($sql);
@@ -57,7 +40,7 @@ if (isset($_GET['hikeid'])) {
                 </div>
             <?php endif; ?>
 
-            <form method="post" class="detail-buttons">
+            <form method="post" action="delete.php?hikeid=<?php echo $hikeid; ?>" class="detail-buttons">
                 <button type="button" class="cancel-button" onclick="location.href='details.php?id=<?php echo $hikeid; ?>'">Cancel</button>
                 <button type="submit" class="confirm-button">Delete</button>
             </form>

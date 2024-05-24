@@ -1,40 +1,48 @@
 <?php
 $message = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
-    include('db_connect.inc');
-    $hikename = $_POST["hikename"];
-    $description = $_POST["description"];
-    $image_name = $_FILES["image"]["name"];
-    $image_tmp = $_FILES["image"]["tmp_name"];
-    $caption = $_POST["caption"];
-    $distance = $_POST["distance"];
-    $location = $_POST["location"];
-    $level = $_POST["level"];
+// Check if memberid is provided in the URL
+if(isset($_GET['userid'])) {
+    $memberid = $_GET['userid'];
 
-    // Upload directory
-    $upload_dir = "images/";
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
+        include('db_connect.inc');
+        $hikename = $_POST["hikename"];
+        $description = $_POST["description"];
+        $image_name = $_FILES["image"]["name"];
+        $image_tmp = $_FILES["image"]["tmp_name"];
+        $caption = $_POST["caption"];
+        $distance = $_POST["distance"];
+        $location = $_POST["location"];
+        $level = $_POST["level"];
 
-    // Move uploaded file to the upload directory
-    if (move_uploaded_file($image_tmp, $upload_dir . $image_name)) {
-        // File uploaded successfully, insert file path into database
-        $image_path = $upload_dir . $image_name;
-        
-        try {
-            // Prepare SQL statement
-            $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            $stmt = $pdo->prepare($sqlInsert);
-            $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level]);
+        // Upload directory
+        $upload_dir = "images/";
 
-            // Set success message
-            $message = "Added successfully";
+        // Move uploaded file to the upload directory
+        if (move_uploaded_file($image_tmp, $upload_dir . $image_name)) {
+            // File uploaded successfully, insert file path into database
+            $image_path = $upload_dir . $image_name;
+            
+            try {
+                // Prepare SQL statement
+                $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level, memberid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                $stmt = $pdo->prepare($sqlInsert);
+                $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level, $memberid]);
 
-        } catch (PDOException $e) {
-            $message = "Error adding hike: " . $e->getMessage();
+                // Set success message
+                $message = "Added successfully";
+
+            } catch (PDOException $e) {
+                $message = "Error adding hike: " . $e->getMessage();
+            }
+        } else {
+            $message = "Error uploading file.";
         }
-    } else {
-        $message = "Error uploading file.";
     }
+} else {
+    // Handle case where memberid is not provided in the URL
+    $message = "Error: Member ID not provided in the URL.";
 }
 ?>
 

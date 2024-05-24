@@ -54,7 +54,7 @@ header, nav {
     justify-content: space-between;
     height: 5rem;
     color: white;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     width: 100%;
 }
 
@@ -94,7 +94,7 @@ header a, nav a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-top: 20px;
 }
 
@@ -103,7 +103,7 @@ header a, nav a {
     /* background-color: var(--page-color); */
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-top: 20px;
 }
 
@@ -124,7 +124,7 @@ header a, nav a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    /* max-width: 1200px; */
 }
 
 .home-wrapper {
@@ -184,6 +184,7 @@ h2 {
     background-color: rgb(169, 182, 133);
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     color: var(--header);
@@ -430,8 +431,8 @@ button {
 }
 
 .box {
-    width: calc(33.33% - 20px);
-    height: 200px;
+    width: calc(30% - 20px);
+    height: 230px;
     background-color: #f0f0f0;
     border-radius: 10px;
     position: relative;
@@ -475,13 +476,19 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-top: 20px;
+
 }
 
 .details-main {
     display: flex;
+   
     
+}
+
+.collection-main {
+    padding: 0 20px;
 }
 
 
@@ -512,6 +519,16 @@ button {
 
 .detail-buttons button:nth-child(2) {
     background-color: var(--red-button);
+}
+
+
+.collection-main {
+    width: 100%;
+}
+
+.collection-box {
+    display: flex;
+    width: 100%;
 }
 
 
@@ -553,7 +570,7 @@ button {
     /* background-color: var(--page-color); */
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-top: 20px;
 }
 

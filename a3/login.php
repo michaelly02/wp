@@ -1,10 +1,13 @@
 <?php
+// Include header
 include './includes/header.inc';
-
 include './includes/nav.inc';
+// Include database connection
 include("db_connect.inc");
 ?>
+
 <main class="login-container">
+    <?php include './includes/nav.inc'; ?>
     <div class="login-intro">
         <h2>Login</h2>
         <?php
@@ -25,9 +28,18 @@ include("db_connect.inc");
                 $userExists = $stmt->fetchColumn();
 
                 if ($userExists) {
-                    // Login successful, set session variable and redirect to index.php with success parameter
+                    // Login successful, set session variables
                     $_SESSION['loggedin'] = true;
                     $_SESSION['username'] = $username;
+
+                    // Retrieve the user ID and set it in the session
+                    $stmt = $pdo->prepare("SELECT id FROM member WHERE username = :username");
+                    $stmt->bindParam(':username', $username);
+                    $stmt->execute();
+                    $id = $stmt->fetchColumn();
+                    $_SESSION['id'] = $id;
+
+                    // Redirect to index.php with success parameter
                     header('Location: index.php?login=success');
                     exit;
                 } else {

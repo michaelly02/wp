@@ -20,7 +20,10 @@
 
 
 <main class="index-container">
-
+<script>
+    var sessionID = <?php echo isset($_SESSION['id']) ? json_encode($_SESSION['id']) : 'null'; ?>;
+    console.log(sessionID);
+</script>
 
 <?php
     if (isset($_GET['registered']) && $_GET['registered'] == 'success') {
