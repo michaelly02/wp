@@ -4,7 +4,7 @@
             <img src="./images/logo.png" alt="logo image">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" style="color: white;"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -35,8 +35,8 @@
                 }
                 ?>
             </ul>
-            <form class="d-flex search-bar-container">
-                <input class="form-control me-2" type="search" id="search-bar" placeholder="Search">
+            <form class="d-flex search-bar-container" action="search.php" method="GET">
+                <input class="form-control me-2" type="search" id="search-bar" name="search" placeholder="Search">
                 <button class="btn btn-outline-success" type="submit">
                     <span class="material-symbols-outlined">search</span>
                 </button>
