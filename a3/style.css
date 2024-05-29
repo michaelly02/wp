@@ -28,7 +28,6 @@ nav {
 
 .navbar-toggler-icon {
     color: white;
-    /* background-color: white; */
 }
 .navbar .navbar-toggler {
     color: white;
@@ -335,6 +334,7 @@ button {
     background-color: #001150;
     color: white;
     margin-right: 10px;
+    border-radius: 10px;
 }
 
 
@@ -343,6 +343,7 @@ button {
     background-color: white;
     color: black;
     margin-left: 10px;
+    border-radius: 10px;
 }
 
 /* ADD PAGE */
