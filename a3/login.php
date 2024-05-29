@@ -7,7 +7,7 @@ include("db_connect.inc");
 ?>
 
 <main class="login-container">
-    <?php include './includes/nav.inc'; ?>
+    
     <div class="login-intro">
         <h2>Login</h2>
         <?php

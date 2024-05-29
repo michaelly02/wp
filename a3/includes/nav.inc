@@ -1,45 +1,46 @@
-<nav>
-    <div>
-        <a href="index.php" class="logo">
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+        <a href="index.php" class="navbar-brand">
             <img src="./images/logo.png" alt="logo image">
         </a>
-        
-        <a class="nav-options" href="index.php">Home</a>
-        <a class="nav-options" href="gallery.php">Gallery</a>
-        <a class="nav-options" href="hikes.php">Hikes</a>
-
-        <?php
-        if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-            // User is logged in
-            // Check if user id is set
-            if (isset($_SESSION['id'])) {
-                echo '<a class="nav-options" href="add.php?userid=' . $_SESSION['id'] . '">Add more</a>';
-            } else {
-                // Handle case where user id is not set
-                echo '<a class="nav-options" href="add.php">Add more</a>';
-            }
-            echo '<a class="nav-options" href="logout.php">Log out</a>';
-        } else {
-            // User is not logged in
-            echo '<a class="nav-options" href="register.php">Register</a>';
-            echo '<a class="nav-options" href="login.php">Login</a>';
-        }
-        ?>
-        
-    </div>
-
-    <div class="search-bar-container">
-        <form class="search-bar-container">
-            <input type="search" id="search-bar" placeholder="Search">
-            <span class="material-symbols-outlined">
-                search
-            </span>
-        </form>
-    </div>
-
-    <div class="burger-icon">
-        <span class="material-symbols-outlined">
-            menu
-        </span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link nav-options" href="index.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-options" href="gallery.php">Gallery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-options" href="hikes.php">Hikes</a>
+                </li>
+                <?php
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+                    // User is logged in
+                    // Check if user id is set
+                    if (isset($_SESSION['id'])) {
+                        echo '<li class="nav-item"><a class="nav-link nav-options" href="add.php?userid=' . $_SESSION['id'] . '">Add more</a></li>';
+                    } else {
+                        // Handle case where user id is not set
+                        echo '<li class="nav-item"><a class="nav-link nav-options" href="add.php">Add more</a></li>';
+                    }
+                    echo '<li class="nav-item"><a class="nav-link nav-options" href="logout.php">Log out</a></li>';
+                } else {
+                    // User is not logged in
+                    echo '<li class="nav-item"><a class="nav-link nav-options" href="register.php">Register</a></li>';
+                    echo '<li class="nav-item"><a class="nav-link nav-options" href="login.php">Login</a></li>';
+                }
+                ?>
+            </ul>
+            <form class="d-flex search-bar-container">
+                <input class="form-control me-2" type="search" id="search-bar" placeholder="Search">
+                <button class="btn btn-outline-success" type="submit">
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
+        </div>
     </div>
 </nav>

@@ -1,3 +1,12 @@
+
+<?php
+// Include header
+include './includes/header.inc';
+include './includes/nav.inc';
+// Include database connection
+include("db_connect.inc");
+?>
+
 <?php
     include 'db_connect.inc'; // Include the database connection file
 
@@ -14,10 +23,8 @@
 
 ?>
 
-<?php include './includes/header.inc'; ?>
-<body>
-<?php include './includes/nav.inc'; ?>
 
+<body>
 
 <main class="index-container">
 <script>
@@ -45,22 +52,43 @@
 
     <div class="index-wrapper">
 
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <?php
-            // Loop through the fetched images and generate carousel items
-            $active = true; // To mark the first item as active
-            foreach ($images as $image) {
-            ?>
-            <div class="carousel-item <?php echo $active ? 'active' : ''; ?>">
-                <img src="<?php echo $image; ?>" class="d-block w-100" alt="...">
-            </div>
-            <?php
-            $active = false; // Set active to false after the first item
-            }
-            ?>
-        </div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <?php
+    $i = 0;
+    foreach ($images as $image) {
+      echo '<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="' . $i . '"';
+      if ($i === 0) {
+        echo ' class="active" aria-current="true"';
+      }
+      echo ' aria-label="Slide ' . ($i + 1) . '"></button>';
+      $i++;
+    }
+    ?>
+  </div>
+  <div class="carousel-inner">
+    <?php
+    $active = true;
+    foreach ($images as $image) {
+      ?>
+      <div class="carousel-item <?php echo $active ? 'active' : ''; ?>">
+        <img src="<?php echo $image; ?>" class="d-block w-100" alt="...">
+      </div>
+      <?php
+      $active = false;
+    }
+    ?>
     </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+
 
         <div class="home-box">
             <h2 class="home-box-title">
@@ -109,7 +137,7 @@
 
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 <script src="./main.js"></script>
 </body>
 </html>
