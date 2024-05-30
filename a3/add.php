@@ -2,7 +2,7 @@
 $message = "";
 
 // Check if memberid is provided in the URL
-if(isset($_GET['userid'])) {
+if (isset($_GET['userid'])) {
     $memberid = $_GET['userid'];
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
@@ -19,11 +19,16 @@ if(isset($_GET['userid'])) {
         // Upload directory
         $upload_dir = "images/";
 
+        // Check if the upload directory exists, if not, create it
+        if (!is_dir($upload_dir)) {
+            mkdir($upload_dir, 0755, true);
+        }
+
         // Move uploaded file to the upload directory
         if (move_uploaded_file($image_tmp, $upload_dir . $image_name)) {
             // File uploaded successfully, insert file path into database
             $image_path = $upload_dir . $image_name;
-            
+
             try {
                 // Prepare SQL statement
                 $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level, memberid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -32,7 +37,6 @@ if(isset($_GET['userid'])) {
 
                 // Set success message
                 $message = "Added successfully";
-
             } catch (PDOException $e) {
                 $message = "Error adding hike: " . $e->getMessage();
             }
@@ -51,20 +55,15 @@ if(isset($_GET['userid'])) {
 <body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
     <main class="home-container">
-    <?php if ($message): ?>
-        <div class="message">
-            <?php echo htmlspecialchars($message); ?>
-        </div>
-    <?php endif; ?>
+        <?php if ($message): ?>
+            <div class="message">
+                <?php echo htmlspecialchars($message); ?>
+            </div>
+        <?php endif; ?>
         <div class="add-wrapper">
             <div class="add-box">
-                <h2>
-                    Add a hike
-                </h2>
-                <div>
-                    You can add a new hike here
-                </div>
-                
+                <h2>Add a hike</h2>
+                <div>You can add a new hike here</div>
             </div>
 
             <div class="add-box">
@@ -96,14 +95,10 @@ if(isset($_GET['userid'])) {
                     </select><br>
                     <div class="buttons">
                         <button type="submit" id="submitButton">
-                            <span class="material-symbols-outlined white">
-                                done
-                            </span> Submit
+                            <span class="material-symbols-outlined white">done</span> Submit
                         </button>
                         <button type="reset" id="clearButton">
-                            <span class="material-symbols-outlined">
-                                close
-                            </span> Clear
+                            <span class="material-symbols-outlined">close</span> Clear
                         </button>
                     </div>
                 </form>
