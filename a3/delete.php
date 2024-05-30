@@ -12,9 +12,20 @@ $message = "";
 if (isset($_GET['hikeid'])) {
     $hikeid = $_GET['hikeid'];
 
+    // Fetch the hike details to get the image path
+    $sql = "SELECT image FROM hikes WHERE hikeid = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$hikeid]);
+    $hike = $stmt->fetch(PDO::FETCH_ASSOC);
+
     // Handle form submission to delete the hike
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         try {
+            // Delete the image file from the server
+            if ($hike && file_exists($hike['image'])) {
+                unlink($hike['image']);
+            }
+
             // Prepare and execute the delete statement
             $sql = "DELETE FROM hikes WHERE hikeid = ?";
             $stmt = $pdo->prepare($sql);
