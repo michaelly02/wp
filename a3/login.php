@@ -1,11 +1,16 @@
 <?php
 // Include header
 include './includes/header.inc';
-include './includes/nav.inc';
 // Include database connection
 include("db_connect.inc");
 ?>
+
+
 <body class="container-fluid">
+
+<?php
+include './includes/nav.inc';
+?>
 <main class="login-container">
     
     <div class="login-intro">
