@@ -15,7 +15,7 @@
 
         </div>
 
-        <form id="filterForm" method="get" action="">
+        <form id="filterForm" method="get">
             <select class="gallery-select" id="level" name="level" onchange="submitForm()">
                 <option value="">Select level...</option>
                 <option value="easy" <?php if(isset($_GET['level']) && $_GET['level'] == 'easy') echo 'selected'; ?>>Easy</option>

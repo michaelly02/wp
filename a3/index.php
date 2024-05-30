@@ -2,7 +2,6 @@
 <?php
 // Include header
 include './includes/header.inc';
-include './includes/nav.inc';
 // Include database connection
 include("db_connect.inc");
 ?>
@@ -25,6 +24,12 @@ include("db_connect.inc");
 
 
 <body class="container-fluid">
+
+
+<?php
+include './includes/nav.inc';
+
+?>
 
 <main class="index-container">
 <script>
