@@ -57,11 +57,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Add other head elements as needed -->
-</head>
 <body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
     <main class="home-container">
