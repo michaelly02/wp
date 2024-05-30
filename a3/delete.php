@@ -34,7 +34,7 @@ if (isset($_GET['hikeid'])) {
 }
 ?>
 
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
 
     <main class="delete-container">

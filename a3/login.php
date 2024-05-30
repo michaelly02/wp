@@ -5,7 +5,7 @@ include './includes/nav.inc';
 // Include database connection
 include("db_connect.inc");
 ?>
-
+<body class="container-fluid">
 <main class="login-container">
     
     <div class="login-intro">

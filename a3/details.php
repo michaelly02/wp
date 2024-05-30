@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
 
 <?php include './includes/header.inc'; ?>
 
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
     <main class="details-container">
         <div class="details-main">

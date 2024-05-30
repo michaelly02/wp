@@ -1,6 +1,6 @@
 <?php include './includes/header.inc'; ?>
 
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
     <?php include("db_connect.inc"); ?>
     <main class="login-container">

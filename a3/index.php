@@ -24,7 +24,7 @@ include("db_connect.inc");
 ?>
 
 
-<body>
+<body class="container-fluid">
 
 <main class="index-container">
 <script>

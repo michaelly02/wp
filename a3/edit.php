@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <!-- Add other head elements as needed -->
 </head>
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
     <main class="home-container">
         <div class="add-wrapper">

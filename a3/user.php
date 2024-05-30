@@ -36,7 +36,7 @@ if (isset($_GET['username'])) {
 }
 ?>
 
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
 
     <main class="details-container">

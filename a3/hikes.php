@@ -1,6 +1,6 @@
 <?php include './includes/header.inc'; ?>
 
-<body>
+<body class="container-fluid">
     <?php include './includes/nav.inc'; ?>
 
     <main class="home-container">
