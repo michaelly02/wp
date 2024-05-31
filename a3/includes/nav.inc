@@ -20,11 +20,11 @@
                 <?php
                 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                     // User is logged in
-                    // Check if user id is set
-                    if (isset($_SESSION['id'])) {
-                        echo '<li class="nav-item"><a class="nav-link nav-options" href="add.php?userid=' . $_SESSION['id'] . '">Add more</a></li>';
+                    // Check if username is set
+                    if (isset($_SESSION['username'])) {
+                        echo '<li class="nav-item"><a class="nav-link nav-options" href="add.php?username=' . urlencode($_SESSION['username']) . '">Add more</a></li>';
                     } else {
-                        // Handle case where user id is not set
+                        // Handle case where username is not set
                         echo '<li class="nav-item"><a class="nav-link nav-options" href="add.php">Add more</a></li>';
                     }
                     echo '<li class="nav-item"><a class="nav-link nav-options" href="logout.php">Log out</a></li>';

@@ -3,12 +3,8 @@
         <?php
         include("db_connect.inc");
 
-        // Query to retrieve usernames from the member table who have uploaded hikes
-        $sql = "
-            SELECT DISTINCT member.username 
-            FROM member
-            INNER JOIN hikes ON member.id = hikes.memberid
-        ";
+        // Query to retrieve distinct usernames from the hikes table who have uploaded hikes
+        $sql = "SELECT DISTINCT username FROM hikes WHERE username IS NOT NULL";
         $stmt = $pdo->query($sql);
 
         // Loop through the usernames and generate hyperlinks

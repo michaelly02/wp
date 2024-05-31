@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 24, 2024 at 11:57 AM
+-- Generation Time: May 31, 2024 at 04:16 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -28,45 +28,41 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `hikes` (
-  `hikeid` bigint(20) UNSIGNED NOT NULL,
-  `hikename` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `caption` varchar(255) DEFAULT NULL,
-  `distance` double DEFAULT NULL,
-  `level` varchar(50) DEFAULT NULL,
-  `location` varchar(255) DEFAULT NULL,
-  `image` text DEFAULT NULL,
-  `memberid` int(11) DEFAULT NULL
+  `hikeid` int(11) NOT NULL,
+  `hikename` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `caption` varchar(255) NOT NULL,
+  `distance` double NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `level` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `hikes`
 --
 
-INSERT INTO `hikes` (`hikeid`, `hikename`, `description`, `caption`, `distance`, `level`, `location`, `image`, `memberid`) VALUES
-(1, 'Werribee Gorge Circuit Walk', 'Werribee Gorge State Park has a selection of shorter and long loop walks to choose from. All walks are Grade 3, meaning a moderate level of fitness is required, walking on uneven ground with many steps, some rock hopping and steep hill sections involved.', 'Werribee Gorge Circuit Walk', 10, 'Moderate', 'Meikles Point Picnic Area', './images/falls.jpg', 0),
-(2, 'Cliff, Woodland and Quarry Tracks', 'A hiking trail that offers a diverse terrain experience, encompassing rugged cliffs, serene woodland paths, and remnants of old quarries. ', 'Cliff, Woodland and Quarry Tracks', 8.9, 'Moderate', 'Cape Woolamai', './images/capewoolamai.jpg', 0),
-(3, 'Lyrebird Track', 'A tranquil hiking trail renowned for its serene ambiance and natural beauty. Named after the elusive lyrebird, this track meanders through lush forests and verdant valleys.', 'Lyrebird Track', 4.8, 'Easy', 'Upper Ferntree Gully', './images/lyrebird.jpg', 0),
-(4, 'Keppel Lookout Trail', 'Invigorating hiking route renowned for its breathtaking panoramic views and moderate difficulty level. Located in Marysville, this trail winds its way through scenic landscapes, leading hikers to the captivating Keppel Lookout.', 'Keppel Lookout Trail', 11, 'Moderate', 'Marysville', './images/keppellookout.jpg', 0),
-(5, 'The Pinnacle Walk & Lookout', 'A renowned hiking trail nestled in the heart of the Grampians National Park, Australia.', 'The Pinnacle Walk & Lookout', 2.1, 'Easy', 'Grampians', './images/grampians.jpg', 0),
-(6, 'Millers Landing Nature Walk', 'This leisurely hike takes visitors on a tranquil journey through diverse ecosystems, including coastal woodlands, sandy beaches, and wetlands. As hikers meander along the trail, they have the opportunity to observe an array of native wildlife.', 'Millers Landing Nature Walk', 4.3, 'Easy', 'Wilsons Promontory', './images/prom.jpg', 0);
+INSERT INTO `hikes` (`hikeid`, `hikename`, `description`, `image`, `caption`, `distance`, `location`, `level`, `username`) VALUES
+(1, 'Werribee Gorge Circuit Walk', 'Werribee Gorge State Park has a selection of shorter and long loop walks to choose from. All walks are Grade 3, meaning a moderate level of fitness is required, walking on uneven ground with many steps, some rock hopping and steep hill sections involved.', './images/falls.jpg', 'Werribee Gorge Circuit Walk', 10, 'Meikles Point Picnic Area', 'Moderate', NULL),
+(2, 'Cliff, Woodland and Quarry Tracks', 'A hiking trail that offers a diverse terrain experience, encompassing rugged cliffs, serene woodland paths, and remnants of old quarries.', './images/capewoolamai.jpg', 'Cliff, Woodland and Quarry Tracks', 8.9, 'Cape Woolamai', 'Moderate', NULL),
+(3, 'Lyrebird Track', 'A tranquil hiking trail renowned for its serene ambiance and natural beauty. Named after the elusive lyrebird, this track meanders through lush forests and verdant valleys.', './images/lyrebird.jpg', 'Lyrebird Track', 4.8, 'Upper Ferntree Gully', 'Easy', NULL),
+(4, 'Keppel Lookout Trail', 'Invigorating hiking route renowned for its breathtaking panoramic views and moderate difficulty level. Located in Marysville, this trail winds its way through scenic landscapes, leading hikers to the captivating Keppel Lookout.', './images/keppellookout.jpg', 'Keppel Lookout Trail', 11, 'Marysville', 'Moderate', NULL),
+(5, 'The Pinnacle Walk & Lookout', 'A renowned hiking trail nestled in the heart of the Grampians National Park, Australia.', './images/grampians.jpg', 'The Pinnacle Walk & Lookout', 2.1, 'Grampians', 'Easy', NULL),
+(6, 'Millers Landing Nature Walk', 'This leisurely hike takes visitors on a tranquil journey through diverse ecosystems, including coastal woodlands, sandy beaches, and wetlands. As hikers meander along the trail, they have the opportunity to observe an array of native wildlife.', './images/prom.jpg', 'Millers Landing Nature Walk', 4.3, 'Wilsons Promontory', 'Easy', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `member` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `users` (
+  `userID` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `reg_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `member`
---
-
 
 --
 -- Indexes for dumped tables
@@ -79,10 +75,10 @@ ALTER TABLE `hikes`
   ADD PRIMARY KEY (`hikeid`);
 
 --
--- Indexes for table `member`
+-- Indexes for table `users`
 --
-ALTER TABLE `member`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -92,13 +88,13 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `hikes`
 --
 ALTER TABLE `hikes`
-  MODIFY `hikeid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `hikeid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `member`
+-- AUTO_INCREMENT for table `users`
 --
-ALTER TABLE `member`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

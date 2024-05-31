@@ -10,19 +10,19 @@ if (isset($_GET['username'])) {
     $username = $_GET['username'];
 
     // Fetch user details
-    $sqlUser = "SELECT * FROM member WHERE username = ?";
+    $sqlUser = "SELECT * FROM users WHERE username = ?";
     $stmtUser = $pdo->prepare($sqlUser);
     $stmtUser->execute([$username]);
     $user = $stmtUser->fetch(PDO::FETCH_ASSOC);
 
     // Check if user exists
     if ($user) {
-        $userid = $user['id'];
+        $userid = $user['userID'];
 
         // Fetch hikes uploaded by the user
-        $sqlHikes = "SELECT * FROM hikes WHERE memberid = ?";
+        $sqlHikes = "SELECT * FROM hikes WHERE username = ?";
         $stmtHikes = $pdo->prepare($sqlHikes);
-        $stmtHikes->execute([$userid]);
+        $stmtHikes->execute([$username]);
         $hikes = $stmtHikes->fetchAll(PDO::FETCH_ASSOC);
     } else {
         // Redirect to homepage if user does not exist

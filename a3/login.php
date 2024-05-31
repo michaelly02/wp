@@ -26,7 +26,7 @@ include './includes/nav.inc';
 
             try {
                 // Check if the username and password match an existing user
-                $stmt = $pdo->prepare("SELECT COUNT(*) FROM member WHERE username = :username AND password = :password");
+                $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = :username AND password = :password");
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':password', $passwordHash);
                 $stmt->execute();
@@ -36,13 +36,6 @@ include './includes/nav.inc';
                     // Login successful, set session variables
                     $_SESSION['loggedin'] = true;
                     $_SESSION['username'] = $username;
-
-                    // Retrieve the user ID and set it in the session
-                    $stmt = $pdo->prepare("SELECT id FROM member WHERE username = :username");
-                    $stmt->bindParam(':username', $username);
-                    $stmt->execute();
-                    $id = $stmt->fetchColumn();
-                    $_SESSION['id'] = $id;
 
                     // Redirect to index.php with success parameter
                     header('Location: index.php?login=success');

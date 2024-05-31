@@ -1,9 +1,9 @@
 <?php
 $message = "";
 
-// Check if memberid is provided in the URL
-if (isset($_GET['userid'])) {
-    $memberid = $_GET['userid'];
+// Check if username is provided in the URL
+if (isset($_GET['username'])) {
+    $username = $_GET['username'];
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["image"])) {
         include('db_connect.inc');
@@ -31,9 +31,9 @@ if (isset($_GET['userid'])) {
 
             try {
                 // Prepare SQL statement
-                $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level, memberid) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                $sqlInsert = "INSERT INTO hikes (hikename, description, image, caption, distance, location, level, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = $pdo->prepare($sqlInsert);
-                $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level, $memberid]);
+                $stmt->execute([$hikename, $description, $image_path, $caption, $distance, $location, $level, $username]);
 
                 // Set success message
                 $message = "Added successfully";
@@ -45,10 +45,11 @@ if (isset($_GET['userid'])) {
         }
     }
 } else {
-    // Handle case where memberid is not provided in the URL
-    $message = "Error: Member ID not provided in the URL.";
+    // Handle case where username is not provided in the URL
+    $message = "Error: Username not provided in the URL.";
 }
 ?>
+
 
 <?php include './includes/header.inc'; ?>
 

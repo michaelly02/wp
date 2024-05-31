@@ -19,7 +19,7 @@
 
                 try {
                     // Check if the username already exists
-                    $stmt = $pdo->prepare("SELECT COUNT(*) FROM member WHERE username = :username");
+                    $stmt = $pdo->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
                     $stmt->bindParam(':username', $username);
                     $stmt->execute();
                     $userExists = $stmt->fetchColumn();
@@ -28,7 +28,7 @@
                         echo "<p>Username already exists!</p>";
                     } else {
                         // Prepare an insert statement
-                        $stmt = $pdo->prepare("INSERT INTO member (username, password) VALUES (:username, :password)");
+                        $stmt = $pdo->prepare("INSERT INTO users (username, password, reg_date) VALUES (:username, :password, NOW())");
 
                         // Bind parameters
                         $stmt->bindParam(':username', $username);
